@@ -11,5 +11,5 @@ do
 	extension="${filename##*.}"
 	filename="${filename%.*}"
 	echo "Processing $filename"
-	echo "cutadapt -a $ADAPTER -m 18 -j 4 -o $DATAPATH/trimming/$filename.fastq.qz $fullfile > $DATAPATH/report/trimming_$filename.txt"
+	cutadapt -a $ADAPTER -m 18 -j 4 -o $DATAPATH/trimming/$filename.fastq.qz $fullfile > $DATAPATH/report/trimming_$filename.txt
 done
