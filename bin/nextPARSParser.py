@@ -64,25 +64,12 @@ def count_reads_by_position_in_features(bam_file,gtf_file,out_file,feature_type,
 	k = 0
 	genes_set = set()
 
-	# TODO remove this line
-	# ~ for align in itertools.islice( bam, 100000):
 	for align in bam:
 		if k > 0 and k % 100000 == 0 and not quiet:
 			sys.stderr.write("%d SAM alignment records processed.\n" % k)
 			sys.stderr.flush()
 		
 		k += 1
-		
-		# TODO: Remove this
-		# ~ for co in align.cigar:
-			# ~ # cut long cigar strings, only the best of reads, maximum one variation
-			# ~ if co.type not in com and co.size > 0:
-				# ~ print("NO",co,co.type,co.size,co.ref_iv)
-				# ~ continue
-			# ~ else:
-				# ~ print("SI",co,co.type,co.size,co.ref_iv)
-
-					# ~ # print ("g_ids",g_ids,iv_f.start)
 		
 		
 		if not align.aligned:
@@ -150,6 +137,7 @@ def count_reads_by_position_in_features(bam_file,gtf_file,out_file,feature_type,
 		# _unmapped _no_feature or _ambiguous
 		if isinstance(gene_id_pos, str):
 			additional_data.append((gene_id_pos,read_counts))
+			continue
 			
 		else:
 			gene_id = gene_id_pos[0] 
