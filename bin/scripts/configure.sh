@@ -12,3 +12,6 @@ mkdir -p $DATAPATH/tab
 mkdir -p $DATAPATH/trimming
 
 chmod -R 775 $DATAPATH
+
+PATH=$PATH:/root/src/nextparsPARSER/dependencies/STAR/source
+export PATH
