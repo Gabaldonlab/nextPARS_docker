@@ -323,9 +323,11 @@ def get_tabfilelist_nextPARS(molname, exp_dir=None):
                         for l in opentab:
                             if molname in l:
                                 if "V1" in exp:
+                                    print("V1",exp)
                                     V1_tabs.append(l)
                                     v_exps.append(exp)
                                 elif "S1" in exp:
+                                    print("S1",exp)
                                     S1_tabs.append(l)
                                     s_exps.append(exp)
                                 else:
@@ -393,6 +395,7 @@ def get_enzyme_profiles(flist, oldFileOrganization, tabnames, misalign, exp_indi
 #        print a
     enz = [x/included for x in enz]   #Average of values from all enz tab files in list file
 #    print colored(enz_name,'red'), enz
+    print colored(enz_name,'red')
     try:
         enz_norm = tsl.normList_to1(enz)
     except ValueError:
